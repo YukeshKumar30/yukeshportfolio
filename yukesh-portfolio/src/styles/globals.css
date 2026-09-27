@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: #080807;
+  color: #F4F2ED;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #C6A76A;
+  color: #0a0a0a;
+}
+
+/* Visible keyboard focus everywhere, without adding a ring to mouse interactions */
+:focus-visible {
+  outline: 2px solid #C6A76A;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hide native cursor only on fine-pointer devices once the custom cursor is mounted */
+.has-custom-cursor {
+  cursor: none;
+}
+
+.has-custom-cursor a,
+.has-custom-cursor button {
+  cursor: none;
+}
+
+.container-edit {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-edit {
+    padding-inline: 3rem;
+  }
+}
+
+.type-display {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.type-label {
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: 0.02em;
+}
+
+.hairline {
+  border-color: rgba(244, 242, 237, 0.1);
+}
+
+/* Masked text reveal — used once, in the hero */
+.reveal-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-mask>span {
+  display: inline-block;
+  transform: translateY(110%);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
